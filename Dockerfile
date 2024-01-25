@@ -1,10 +1,12 @@
-FROM python:3.10.12
+FROM python
 
+WORKDIR /myapp
 
-WORKDIR /pythonapp
+COPY ./sql_demo.py .
 
-COPY . .
+RUN pip install pymysql
+RUN pip install cryptography
 
-CMD ['python', "pythonapp.py"]
+CMD ["python", "sql_demo.py"]
 
  
